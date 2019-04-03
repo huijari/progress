@@ -1,5 +1,5 @@
 function calculateIndividual({ score, total }) {
-  if (score !== null)
+  if (score !== undefined)
     return {
       earned: score,
       lost: total - score,

@@ -27,6 +27,7 @@ function useRating({
     return { ratingNotFound: true }
 
   const onSubmit = values => {
+    if (values.score === '') values.score = undefined
     RatingService.save(values)
     if (ratingId === undefined) {
       subject.ratings.push(values.id)
