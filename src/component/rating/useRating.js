@@ -2,8 +2,7 @@ import useForm from '@uneksija/useform'
 import { navigate } from '@reach/router'
 import { useEffect, useState } from 'react'
 
-import RatingService from '../../service/rating'
-import SubjectService from '../../service/subject'
+import Local from '../../service/local'
 
 function validate({ name, total }) {
   const errors = {}
@@ -17,18 +16,18 @@ function useRating({ subjectId, ratingId }) {
   const [rating, setRating] = useState()
 
   useEffect(() => {
-    setSubject(SubjectService.getOne(subjectId))
+    setSubject(Local.get('subjects', subjectId))
   }, [subjectId])
   useEffect(() => {
-    setRating(RatingService.getOne(ratingId))
+    setRating(Local.get('ratings', ratingId))
   }, [ratingId])
 
   const onSubmit = values => {
     if (values.score === '') values.score = undefined
-    RatingService.save(values)
+    Local.save('ratings', values)
     if (ratingId === undefined) {
       subject.ratings.push(values.id)
-      SubjectService.save(subject)
+      Local.save('subjects', subject)
     }
     navigate(`/s/${subjectId}`)
   }

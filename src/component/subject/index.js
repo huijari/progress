@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from '@reach/router'
 
-import RatingService from '../../service/rating'
+import Local from '../../service/local';
 import ScoreChart from '../scoreChart'
 
 const Subject = ({ id, name, ratings }) => {
-  const ratingList = RatingService.get(ratings)
+  const ratingList = Local.get('ratings', ratings)
   return (
     <div>
       <b>{name}</b>

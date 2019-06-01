@@ -1,24 +1,23 @@
 import { useState, useEffect } from 'react'
 
-import SubjectService from '../../service/subject'
-import RatingService from '../../service/rating'
+import Local from '../../service/local'
 
 function useSubjectDetail({ subjectId }) {
   const [subject, setSubject] = useState()
 
   useEffect(() => {
-    setSubject(SubjectService.getOne(subjectId))
+    setSubject(Local.get('subjects', subjectId))
   }, [subjectId])
 
   if (subject === undefined) return { subjectNotFound: true }
 
   const changeName = newName => {
     subject.name = newName
-    SubjectService.save(subject)
+    Local.save('subjects', subject)
     setSubject(subject)
   }
 
-  const ratings = RatingService.get(subject.ratings)
+  const ratings = Local.get('ratings', subject.ratings)
 
   return {
     changeName,

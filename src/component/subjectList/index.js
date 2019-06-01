@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from '@reach/router'
 
-import SubjectService from '../../service/subject'
+import Local from '../../service/local';
 import Subject from '../subject'
 
 const SubjectList = () => {
-  const subjects = SubjectService.getAll()
+  const subjects = Local.get('subjects')
 
   return (
     <div>
