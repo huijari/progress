@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import Editable from '../editable'
+import ScoreChart from '../scoreChart'
 import useSubjectDetail from './useSubjectDetail'
 
 const SubjectNotFound = () => <span>subject not found</span>
@@ -15,10 +16,11 @@ const SubjectDetail = props => {
 
   return (
     <div>
+      <ScoreChart ratings={ratings} />
       <Editable value={name} onChange={changeName} />
       <ul>
         {ratings.map(rating => (
-          <li>
+          <li key={rating.id}>
             {rating.name}
             <Link to={`/s/${id}/r/${rating.id}`}>edit</Link>
           </li>

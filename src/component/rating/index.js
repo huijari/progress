@@ -37,7 +37,7 @@ const Rating = props => {
           name="total"
           type="number"
           min={1}
-          value={values.total || ''}
+          value={values.total === undefined ? '' : values.total}
           onChange={handleChange}
         />
         <i>{errors.total}</i>
@@ -48,7 +48,7 @@ const Rating = props => {
           name="score"
           type="number"
           min={0}
-          value={values.score || ''}
+          value={values.score === undefined ? '' : values.score}
           onChange={handleChange}
         />
         <i>{errors.score}</i>
