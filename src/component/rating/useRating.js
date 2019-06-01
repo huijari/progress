@@ -1,4 +1,6 @@
 import useForm from '@uneksija/useform'
+import { navigate } from '@reach/router'
+import { useEffect, useState } from 'react'
 
 import RatingService from '../../service/rating'
 import SubjectService from '../../service/subject'
@@ -10,21 +12,16 @@ function validate({ name, total }) {
   return errors
 }
 
-function useRating({
-  match: {
-    params: { subjectId, ratingId }
-  },
-  history
-}) {
-  const subject = SubjectService.getOne(subjectId)
-  if (subject === undefined) return { subjectNotFound: true }
+function useRating({ subjectId, ratingId }) {
+  const [subject, setSubject] = useState()
+  const [rating, setRating] = useState()
 
-  const rating = RatingService.getOne(ratingId)
-  if (
-    ratingId !== undefined &&
-    (rating === undefined || !subject.ratings.includes(ratingId))
-  )
-    return { ratingNotFound: true }
+  useEffect(() => {
+    setSubject(SubjectService.getOne(subjectId))
+  }, [subjectId])
+  useEffect(() => {
+    setRating(RatingService.getOne(ratingId))
+  }, [ratingId])
 
   const onSubmit = values => {
     if (values.score === '') values.score = undefined
@@ -33,7 +30,7 @@ function useRating({
       subject.ratings.push(values.id)
       SubjectService.save(subject)
     }
-    history.push(`/s/${subjectId}`)
+    navigate(`/s/${subjectId}`)
   }
 
   const initialValues = rating || {
@@ -43,11 +40,20 @@ function useRating({
     score: ''
   }
 
-  return useForm({
+  const props = useForm({
     initialValues,
     validate,
     onSubmit
   })
+
+  if (subject === undefined) return { subjectNotFound: true }
+  if (
+    ratingId !== undefined &&
+    (rating === undefined || !subject.ratings.includes(ratingId))
+  )
+    return { ratingNotFound: true }
+
+  return props
 }
 
 export default useRating

@@ -1,30 +1,30 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import SubjectService from '../../service/subject'
 import RatingService from '../../service/rating'
 
-function useSubjectDetail({
-  match: {
-    params: { subjectId }
-  }
-}) {
-  const subject = SubjectService.getOne(subjectId)
+function useSubjectDetail({ subjectId }) {
+  const [subject, setSubject] = useState()
+
+  useEffect(() => {
+    setSubject(SubjectService.getOne(subjectId))
+  }, [subjectId])
+
   if (subject === undefined) return { subjectNotFound: true }
 
-  const [name, setName] = useState(subject.name)
   const changeName = newName => {
     subject.name = newName
     SubjectService.save(subject)
-    setName(newName)
+    setSubject(subject)
   }
 
   const ratings = RatingService.get(subject.ratings)
 
   return {
-    name,
     changeName,
     ratings,
-    id: subject.id
+    id: subject.id,
+    name: subject.name
   }
 }
 
