@@ -14,7 +14,7 @@ const SubjectList = () => {
       <h1 className="subjectList__header">Subjects</h1>
       <div className="subjectList__grid">
         {subjects.map(({ id, name, ratings }) => (
-          <Subject id={id} name={name} ratings={ratings} />
+          <Subject key={id} id={id} name={name} ratings={ratings} />
         ))}
       </div>
       <Link className="subjectList__button" to="/s/">

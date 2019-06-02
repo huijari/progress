@@ -1,0 +1,11 @@
+.Score--red {
+  color: var(--red);
+}
+
+.Score--green {
+  color: var(--green);
+}
+
+.Score--blue {
+  color: var(--blue);
+}
