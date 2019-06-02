@@ -1,12 +1,12 @@
 import React from 'react'
 import { VictoryPie } from 'victory-pie'
 
-import useScoreChart from './useScoreChart'
+import ScoreStats from '../../service/scoreStats'
 
 const colors = ['#32CCBC', '#90F7EC', '#CE9FFC', 'white']
 
 const ScoreChart = ({ ratings }) => {
-  const { earned, unknown, remaining, lost } = useScoreChart(ratings)
+  const { earned, unknown, remaining, lost } = ScoreStats(ratings)
   const data = [
     { x: 'Earned', y: earned },
     { x: 'Unknown', y: unknown },

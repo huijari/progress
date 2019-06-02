@@ -1,4 +1,4 @@
-function calculateIndividual({ score, total }) {
+function individualStats({ score, total }) {
   if (score !== undefined)
     return {
       earned: score,
@@ -12,10 +12,10 @@ function calculateIndividual({ score, total }) {
   }
 }
 
-function useScoreChart(ratings) {
+function ScoreStats(ratings) {
   const stats = ratings.reduce(
     (stats, rating) => {
-      const { earned, lost, unknown } = calculateIndividual(rating)
+      const { earned, lost, unknown } = individualStats(rating)
       return {
         earned: earned + stats.earned,
         lost: lost + stats.lost,
@@ -36,4 +36,4 @@ function useScoreChart(ratings) {
   }
 }
 
-export default useScoreChart
+export default ScoreStats
