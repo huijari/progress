@@ -6,6 +6,8 @@ import Rating from './component/rating'
 import SubjectDetail from './component/subjectDetail'
 import SubjectList from './component/subjectList'
 
+import './style.css'
+
 const NotFound = () => '404'
 
 const App = () => (

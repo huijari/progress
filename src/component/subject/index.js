@@ -1,18 +1,15 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { Link } from '@reach/router'
 
-import Local from '../../service/local';
-import ScoreChart from '../scoreChart'
+import './style.css'
 
-const Subject = ({ id, name, ratings }) => {
-  const ratingList = Local.get('ratings', ratings)
-  return (
-    <div>
-      <b>{name}</b>
-      <Link to={`/s/${id}`}>edit</Link>
-      <ScoreChart ratings={ratingList} />
-    </div>
-  )
-}
+const Subject = ({ id, name, ratings }) => (
+  <Fragment>
+    <span>34%</span>
+    <Link className="Subject__link" to={`/s/${id}`}>
+      {name}
+    </Link>
+  </Fragment>
+)
 
 export default Subject

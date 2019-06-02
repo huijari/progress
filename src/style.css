@@ -1,0 +1,16 @@
+:root {
+  --spacing: 32px;
+  --gray: #333333;
+  --light: #dddddd;
+  --red: #eb5757;
+  --green: #27ae60;
+  --blue: #2f80ed;
+}
+
+body {
+  color: var(--gray);
+  font-family: Roboto;
+  font-size: 18px;
+  margin: 0;
+  padding: var(--spacing);
+}
