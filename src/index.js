@@ -2,9 +2,9 @@ import React from 'react'
 import { render } from 'react-dom'
 import { Router } from '@reach/router'
 
-import Rating from './component/rating'
-import SubjectDetail from './component/subjectDetail'
-import SubjectList from './component/subjectList'
+import Rating from './page/rating'
+import SubjectDetail from './page/subjectDetail'
+import SubjectList from './page/subjectList'
 
 import './style.css'
 

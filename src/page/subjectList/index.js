@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from '@reach/router'
 
 import Local from '../../service/local'
-import Subject from '../subject'
+import Subject from '../../component/subject'
 
 import './style.css'
 
