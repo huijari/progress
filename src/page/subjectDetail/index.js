@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import { Link } from '@reach/router'
 
 import useSubjectDetail from './useSubjectDetail'
+import ScoreChart from '../../component/scoreChart'
 
 import './style.css'
 
@@ -19,7 +20,9 @@ const SubjectDetail = props => {
 
   return (
     <div>
-      <div className="subjectDetail__figure" />
+      <div className="subjectDetail__figure">
+        <ScoreChart ratings={ratings} />
+      </div>
       <div className="subjectDetail__content">
         <h1 className="subjectDetail__header">{name}</h1>
         <div className="subjectDetail__grid">

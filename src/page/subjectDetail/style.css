@@ -1,6 +1,9 @@
 .subjectDetail__figure {
+  align-items: center;
   background: var(--light);
-  height: 200px;
+  display: flex;
+  justify-content: center;
+  padding: calc(var(--spacing) / 2);
 }
 
 .subjectDetail__content {
@@ -16,7 +19,7 @@
 .subjectDetail__grid {
   display: grid;
   grid-column-gap: 1em;
-  grid-row-gap: var(--spacing);
+  grid-row-gap: calc(var(--spacing) / 2);
   grid-template-columns: 1fr auto;
   margin: var(--spacing) 0;
 }
