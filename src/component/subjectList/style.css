@@ -1,3 +1,7 @@
+.subjectList {
+  padding: var(--spacing);
+}
+
 .subjectList__header {
   font-size: 36px;
   font-weight: bold;
@@ -5,21 +9,21 @@
 }
 
 .subjectList__grid {
-	display: grid;
-	grid-template-columns: auto 1fr;
-	grid-row-gap: var(--spacing);
-	grid-column-gap: 1em;
-	margin: var(--spacing) 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-row-gap: var(--spacing);
+  grid-column-gap: 1em;
+  margin: var(--spacing) 0;
 }
 
 .subjectList__button {
-	border-radius: 8px;
-	color: inherit;
-	display: block;
-	font: inherit;
-	text-decoration: none;
-	text-transform: uppercase;
+  border-radius: 8px;
+  color: inherit;
+  display: block;
+  font: inherit;
+  text-decoration: none;
+  text-transform: uppercase;
   background: var(--light);
   padding: 0.5em 1em;
-	text-align: center;
+  text-align: center;
 }

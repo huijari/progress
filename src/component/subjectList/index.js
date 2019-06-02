@@ -10,7 +10,7 @@ const SubjectList = () => {
   const subjects = Local.get('subjects')
 
   return (
-    <div>
+    <div className="subjectList">
       <h1 className="subjectList__header">Subjects</h1>
       <div className="subjectList__grid">
         {subjects.map(({ id, name, ratings }) => (

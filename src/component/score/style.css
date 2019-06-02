@@ -1,11 +1,11 @@
-.Score--red {
+.score--red {
   color: var(--red);
 }
 
-.Score--green {
+.score--green {
   color: var(--green);
 }
 
-.Score--blue {
+.score--blue {
   color: var(--blue);
 }

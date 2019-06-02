@@ -12,7 +12,7 @@ const Subject = ({ id, name, ratings }) => {
   return (
     <Fragment>
       <Score ratings={ratingList} />
-      <Link className="Subject__link" to={`/s/${id}`}>
+      <Link className="subject__link" to={`/s/${id}`}>
         {name}
       </Link>
     </Fragment>
